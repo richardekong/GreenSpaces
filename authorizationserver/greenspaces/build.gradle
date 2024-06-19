@@ -1,0 +1,91 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.11'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.asciidoctor.jvm.convert' version '2.4.0'
+}
+
+group = 'com.daveace'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-authorization-server'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+    implementation 'org.hibernate:hibernate-validator:7.0.0.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'com.h2database:h2'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+tasks.named('bootBuildImage') {
+    builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+task greenspacesDocsTest(type: Test) {
+    useJUnitPlatform()
+    include 'com/daveace/greenspaces/docs/**'
+}
+
+//tasks.named('asciidoctor') {
+//    inputs.dir snippetsDir
+//    dependsOn greenspacesDocsTest
+//}
+
+asciidoctor {
+    // Set the source directory for Asciidoctor
+    sourceDir = file('src/main/asciidoc')
+
+    // Set the output directory for the generated HTML files
+    outputDir = file("${buildDir}/docs/asciidoc/html")
+
+    // Include the Asciidoctor files in the package
+    sources {
+        include 'com/daveace/greenspaces/docs/**/*.adoc'
+    }
+
+    // Set any Asciidoctor options or attributes if needed
+    options = [
+            backend: 'html',
+            doctype: 'book',
+    ]
+
+    attributes = [
+            toc: 'left',
+            numbered: '',
+            // Add other attributes as needed
+    ]
+
+    // Ensure the task depends on the greenspacesDocsTest task
+    dependsOn greenspacesDocsTest
+}

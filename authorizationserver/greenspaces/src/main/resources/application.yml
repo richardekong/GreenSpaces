@@ -1,0 +1,22 @@
+#Specifying the server port number
+server:
+    port: 1000
+logging:
+    level:
+        org:
+            springframework:
+                security: 'DEBUG'
+#Specifying the application name
+spring:
+    application:
+        name: greenspaces
+#establish connection to mysql database
+    datasource:
+        url: 'jdbc:mysql://localhost:3306/greenspaces'
+        username: 'greenspaces'
+        password: 'greenspaces'
+        driver-class-name: 'com.mysql.cj.jdbc.Driver'
+        jpa:
+            hibernate:
+                ddl-auto: 'update'
+                show-sql: true

@@ -1,0 +1,364 @@
+= GreenSpaces Authorization Service Documentation
+Richard W. Ekong
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+
+This application will demonstrate how to provide authorization to other GreenSpaces clients to access GreenSpaces resource through a GreenSpaces
+resource server.
+
+The Demonstrations will be performed through the Spring Rest Docs from the applications lightweight tests.
+The lightweight ClientControllerTest makes calls to the client service of this application to produce the following
+documentation snippets.
+
+== Creating a user
+
+cURL Request:
+
+include::{snippets}/users/Create User/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Create User/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Create User/http-request.adoc[]
+include::{snippets}/users/Create User/http-response.adoc[]
+
+Requests and Responses:
+
+include::{snippets}/users/Create User/request-body.adoc[]
+include::{snippets}/users/Create User/request-fields.adoc[]
+include::{snippets}/users/Create User/response-body.adoc[]
+
+== Retrieving a user by id
+
+cURL Request:
+
+include::{snippets}/users/Retrieve User/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Retrieve User/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve User/http-request.adoc[]
+include::{snippets}/users/Retrieve User/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Retrieve User/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Retrieve User/request-body.adoc[]
+include::{snippets}/users/Retrieve User/response-body.adoc[]
+include::{snippets}/users/Retrieve User/response-fields.adoc[]
+
+== Retrieving a user's Role
+
+cURL Request:
+
+include::{snippets}/users/Retrieve User Role/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Retrieve User Role/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve User Role/http-request.adoc[]
+include::{snippets}/users/Retrieve User Role/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Retrieve User Role/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Retrieve User Role/request-body.adoc[]
+include::{snippets}/users/Retrieve User Role/response-body.adoc[]
+include::{snippets}/users/Retrieve User Role/response-fields.adoc[]
+
+== Retrieving a user's Roles
+
+cURL Request:
+
+include::{snippets}/users/Retrieve User Roles/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Retrieve User Roles/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve User Roles/http-request.adoc[]
+include::{snippets}/users/Retrieve User Roles/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Retrieve User Roles/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Retrieve User Roles/request-body.adoc[]
+include::{snippets}/users/Retrieve User Roles/response-body.adoc[]
+include::{snippets}/users/Retrieve User Roles/response-fields.adoc[]
+
+== Retrieving a User's Authority
+
+cURL Request:
+
+include::{snippets}/users/Retrieve User Authority/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Retrieve User Authority/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve User Authority/http-request.adoc[]
+include::{snippets}/users/Retrieve User Authority/http-response.adoc[]
+
+Request Parameters:
+
+include::{snippets}/users/Retrieve User Authority/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Retrieve User Authority/request-body.adoc[]
+include::{snippets}/users/Retrieve User Authority/response-body.adoc[]
+include::{snippets}/users/Retrieve User Authority/response-fields.adoc[]
+
+== Retrieving a User's Authorities
+
+cURL Request:
+
+include::{snippets}/users/Retrieve Authorities by User id/curl-request.adoc[]
+
+Httpie Request:
+
+include::{snippets}/users/Retrieve Authorities by User id/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve Authorities by User id/http-request.adoc[]
+include::{snippets}/users/Retrieve Authorities by User id/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Retrieve Authorities by User id/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Retrieve Authorities by User id/request-body.adoc[]
+include::{snippets}/users/Retrieve Authorities by User id/response-body.adoc[]
+include::{snippets}/users/Retrieve Authorities by User id/response-fields.adoc[]
+
+== Retrieving all Users
+
+cURL Request:
+
+include::{snippets}/users/Retrieve All Users/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Retrieve All Users/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Retrieve All Users/http-request.adoc[]
+include::{snippets}/users/Retrieve All Users/http-response.adoc[]
+
+Requests and Responses:
+
+include::{snippets}/users/Retrieve All Users/request-body.adoc[]
+include::{snippets}/users/Retrieve All Users/response-body.adoc[]
+include::{snippets}/users/Retrieve All Users/response-fields.adoc[]
+
+== Updating a User (Adding Authorities to User)
+
+cURL Request:
+
+include::{snippets}/users/Add Authorities to User/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Add Authorities to User/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Add Authorities to User/http-request.adoc[]
+include::{snippets}/users/Add Authorities to User/http-response.adoc[]
+
+Request Parameters:
+
+include::{snippets}/users/Add Authorities to User/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Add Authorities to User/request-body.adoc[]
+include::{snippets}/users/Add Authorities to User/request-fields.adoc[]
+include::{snippets}/users/Add Authorities to User/response-body.adoc[]
+
+== Updating a User (Adding Roles to User)
+
+cURL Request:
+
+include::{snippets}/users/Add Roles to User/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Add Roles to User/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Add Roles to User/http-request.adoc[]
+include::{snippets}/users/Add Roles to User/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Add Roles to User/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Add Roles to User/request-body.adoc[]
+include::{snippets}/users/Add Roles to User/response-body.adoc[]
+
+== Updating a User's account status
+
+cURL Request:
+
+include::{snippets}/users/Update a User account status/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Update a User account status/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Update a User account status/http-request.adoc[]
+include::{snippets}/users/Update a User account status/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Update a User account status/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Update a User account status/request-body.adoc[]
+include::{snippets}/users/Update a User account status/response-body.adoc[]
+
+== Updating a User's Password
+
+cURL Request:
+
+include::{snippets}/users/Reset User Password/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Reset User Password/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Reset User Password/http-request.adoc[]
+include::{snippets}/users/Reset User Password/http-response.adoc[]
+
+Request Parameters:
+
+include::{snippets}/users/Reset User Password/path-parameters.adoc[]
+
+Requests and Responses:
+
+include::{snippets}/users/Reset User Password/request-body.adoc[]
+include::{snippets}/users/Reset User Password/request-fields.adoc[]
+include::{snippets}/users/Reset User Password/response-body.adoc[]
+
+== Deleting a User
+
+cURL Request:
+
+include::{snippets}/users/Delete a User/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/users/Delete a User/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/users/Delete a User/http-request.adoc[]
+include::{snippets}/users/Delete a User/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/users/Delete a User/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/users/Delete a User/request-body.adoc[]
+include::{snippets}/users/Delete a User/response-body.adoc[]
+
+
+== Creating a Client
+
+cURL Request:
+
+include::{snippets}/clients/Creating a Client/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/clients/Creating a Client/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/clients/Creating a Client/http-request.adoc[]
+include::{snippets}/clients/Creating a Client/http-response.adoc[]
+Requests and Responses:
+include::{snippets}/clients/Creating a Client/request-body.adoc[]
+include::{snippets}/clients/Creating a Client/request-fields.adoc[]
+include::{snippets}/clients/Creating a Client/response-body.adoc[]
+include::{snippets}/clients/Creating a Client/response-fields.adoc[]
+
+== Retrieving a Client
+
+cURL Request:
+
+include::{snippets}/clients/Retrieving a Client/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/clients/Retrieving a Client/httpie-request.adoc[]
+
+Http Request:
+
+include::{snippets}/clients/Retrieving a Client/http-request.adoc[]
+include::{snippets}/clients/Retrieving a Client/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/clients/Retrieving a Client/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/clients/Retrieving a Client/request-body.adoc[]
+include::{snippets}/clients/Retrieving a Client/response-body.adoc[]
+include::{snippets}/clients/Retrieving a Client/response-fields.adoc[]
+
+== Retrieving all Clients
+
+cURL Request:
+
+include::{snippets}/clients/Retrieving All Clients/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/clients/Retrieving All Clients/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/clients/Retrieving All Clients/http-request.adoc[]
+include::{snippets}/clients/Retrieving All Clients/http-response.adoc[]
+
+Requests and Responses:
+
+include::{snippets}/clients/Retrieving All Clients/request-body.adoc[]
+include::{snippets}/clients/Retrieving All Clients/response-body.adoc[]
+include::{snippets}/clients/Retrieving All Clients/response-fields.adoc[]
+
+== Updating a Client
+
+cURL Request:
+
+include::{snippets}/clients/Updating a Client/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/clients/Updating a Client/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/clients/Updating a Client/http-request.adoc[]
+include::{snippets}/clients/Updating a Client/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/clients/Updating a Client/path-parameters.adoc[]
+Requests and Responses:
+
+include::{snippets}/clients/Updating a Client/request-body.adoc[]
+include::{snippets}/clients/Updating a Client/response-body.adoc[]
+include::{snippets}/clients/Updating a Client/request-fields.adoc[]
+
+== Deleting a Client
+
+cURL Request:
+
+include::{snippets}/clients/Deleting a Client/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/clients/Deleting a Client/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/clients/Deleting a Client/http-request.adoc[]
+include::{snippets}/clients/Deleting a Client/http-response.adoc[]
+Request Parameters:
+
+include::{snippets}/clients/Deleting a Client/path-parameters.adoc[]
+
+Requests and Responses:
+
+include::{snippets}/clients/Deleting a Client/request-body.adoc[]
+include::{snippets}/clients/Deleting a Client/response-body.adoc[]
