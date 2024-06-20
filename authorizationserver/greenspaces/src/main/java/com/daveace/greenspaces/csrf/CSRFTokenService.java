@@ -35,21 +35,32 @@ public class CSRFTokenService implements CsrfTokenRepository {
     public void saveToken(CsrfToken token, HttpServletRequest request, HttpServletResponse response) {
         String clientId = request.getHeader(X_IDENTIFIER);
         Optional<CSRFToken> existingToken = repo.findCSRFTokenByClientId(clientId);
-
-        if (existingToken.isPresent()) {
-            CSRFToken csrfToken = existingToken.get();
-            if (repo.isExpired(csrfToken)) {
-                repo.deleteById(csrfToken.getId());
+        try{
+            if (existingToken.isPresent())
+            {
+                CSRFToken csrfToken = existingToken.get();
+                if (repo.isExpired(csrfToken))
+                {
+                    repo.deleteById(csrfToken.getId());
+                    CSRFToken newToken = createNewToken(token, clientId);
+                    repo.save(newToken);
+                    return;
+                }
+                csrfToken.setToken(token.getToken());
+            }
+            else
+            {
                 CSRFToken newToken = createNewToken(token, clientId);
                 repo.save(newToken);
-                return;
             }
-            csrfToken.setToken(token.getToken());
-        } else {
-            CSRFToken newToken = createNewToken(token, clientId);
-            repo.save(newToken);
         }
-
+        catch(RuntimeException e)
+        {
+            throw new GreenSpacesException(
+                    e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR
+            );
+        }
     }
 
     @Override

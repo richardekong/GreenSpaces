@@ -104,10 +104,6 @@ public class SecurityConfig {
         // Configure all endpoints to require authentication
         return http
                 .cors(corsCustomizer -> corsCustomizer.configurationSource(corsConfigurationSource))
-                .csrf(csrfCustomizer -> {
-                    csrfCustomizer.csrfTokenRepository(csrfTokenRepo);
-                    csrfCustomizer.csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler());
-                })
                 .authorizeHttpRequests(c -> c.anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
