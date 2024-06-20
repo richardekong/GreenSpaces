@@ -1,6 +1,15 @@
 #Specifying the server port number
 server:
     port: 1000
+#keytool -genkeypair -alias myalias -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore fileName -validity 3650
+
+# Enable SSL (HTTPS)
+    ssl:
+        key-store: ${greenspaces-keystore}
+        key-store-password: ${greenspaces-ks-pwd}
+        key-store-type: 'PKCS12'
+        key-alias: 'greenspaces-keys'
+
 logging:
     level:
         org:
