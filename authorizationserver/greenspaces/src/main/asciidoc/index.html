@@ -564,12 +564,117 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 resource server.</p>
 </div>
 <div class="paragraph">
-<p>The Demonstrations will be performed through the Spring Rest Docs from the applications lightweight tests.</p>
-</div>
-<div class="paragraph">
-<p>The lightweight ClientControllerTest makes calls to the client service of this application to produce the following
+<p>The Demonstrations will be performed through the Spring Rest Docs from the applications lightweight tests.
+The lightweight ClientControllerTest makes calls to the client service of this application to produce the following
 documentation snippets.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_performing_authorization_through_authorization_code_grant_type">Performing Authorization through Authorization Code Grant Type</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>cURL Request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/oauth2/authorize?response_type=code&amp;client_id=76e09d7a-1095-4b47-80c5-5f8bcba70f1d&amp;scope=read&amp;redirect_uri=https://localhost:1000&amp;code_challenge=BUJilj4kra3vxk6TPzZH_yNEkBZVB9yfAvrvlpmDM3E&amp;code_challenge_method=S256' -i -X GET</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Httpie Request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ http GET 'http://localhost:8080/oauth2/authorize?response_type=code&amp;client_id=76e09d7a-1095-4b47-80c5-5f8bcba70f1d&amp;scope=read&amp;redirect_uri=https://localhost:1000&amp;code_challenge=BUJilj4kra3vxk6TPzZH_yNEkBZVB9yfAvrvlpmDM3E&amp;code_challenge_method=S256'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Http Request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /oauth2/authorize?response_type=code&amp;client_id=76e09d7a-1095-4b47-80c5-5f8bcba70f1d&amp;scope=read&amp;redirect_uri=https://localhost:1000&amp;code_challenge=BUJilj4kra3vxk6TPzZH_yNEkBZVB9yfAvrvlpmDM3E&amp;code_challenge_method=S256 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Http Response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 302 Found
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: https://localhost:1000?code=IDG88NKf0oXs9t3FdI1BCDP9VziZsR_aBA0KaLq4ClzVhO4zReDHVZN8W88l053oZOMCK5MWUElLOLAEHJlWYT5z8tbmni99BxakLTrDZTGk8N2Ucxif2iGQno_Hqpxb</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Query Parameters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>response_type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">grant type of the client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>client_id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id of the client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scope</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scope of user data available to the client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redirect_uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri that user will be directed to after successful login</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code_challenge</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verifier Code or Proof Key for Code Exchange (PKCE) security enhancement provided by the client</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code_challenge_method</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Algorithm for generating the PKCE e.g SHA-256</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Response Header:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Location</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Current URI containing the authorization code after a successful redirect operation</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -3164,7 +3269,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-17 22:42:04 +0100
+Last updated 2024-06-21 23:03:25 +0100
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

@@ -44,7 +44,7 @@ INSERT INTO AUTHENTICATION_METHODS (id, method, client_id)
 
 INSERT INTO REDIRECT_URIS (id, uri, client_id)
 VALUES (1,
-        '127.0.0.1',
+        'https://localhost:1000',
         '76e09d7a-1095-4b47-80c5-5f8bcba70f1d');
 
 INSERT INTO TOKEN_SETTINGS (id, format, access_token_ttl, client_id)

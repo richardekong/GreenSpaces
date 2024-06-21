@@ -11,6 +11,28 @@ The Demonstrations will be performed through the Spring Rest Docs from the appli
 The lightweight ClientControllerTest makes calls to the client service of this application to produce the following
 documentation snippets.
 
+== Performing Authorization through Authorization Code Grant Type
+
+cURL Request:
+
+include::{snippets}/OAuth2.0 Authorization/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/OAuth2.0 Authorization/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/OAuth2.0 Authorization/http-request.adoc[]
+Http Response:
+
+include::{snippets}/OAuth2.0 Authorization/http-response.adoc[]
+Query Parameters:
+
+include::{snippets}/OAuth2.0 Authorization/query-parameters.adoc[]
+
+Response Header:
+
+include::{snippets}/OAuth2.0 Authorization/response-headers.adoc[]
+
 == Creating a user
 
 cURL Request:
