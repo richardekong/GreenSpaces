@@ -29,6 +29,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class OAuth2AuthorizationTest {
 
+    public static final String OAUTH2_AUTH_QUERY_PARAMS =
+            "response_type=%s&" +
+            "client_id=%s&" +
+            "scope=%s&" +
+            "redirect_uri=%s&" +
+            "code_challenge=%s&" +
+            "code_challenge_method=%s";
+
     @Autowired
     MockMvc mockMvc;
 
@@ -37,13 +45,7 @@ public class OAuth2AuthorizationTest {
     @WithMockUser(username = "admin@greenspaces.com", password = "password", roles = "ADMIN")
     void verifyAuthorizationServerRedirectsToObtainAuthorizationCode() throws Exception{
 
-        mockMvc.perform(get(format("https://localhost:1000/oauth2/authorize?" +
-                        "response_type=%s&" +
-                        "client_id=%s&" +
-                        "scope=%s&" +
-                        "redirect_uri=%s&" +
-                        "code_challenge=%s&" +
-                        "code_challenge_method=%s",
+        mockMvc.perform(get(format("https://localhost:1000/oauth2/authorize?" + OAUTH2_AUTH_QUERY_PARAMS,
                         "code",
                         "76e09d7a-1095-4b47-80c5-5f8bcba70f1d",
                         "read",
