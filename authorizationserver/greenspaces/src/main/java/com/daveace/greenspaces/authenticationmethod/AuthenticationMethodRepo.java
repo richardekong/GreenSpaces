@@ -2,5 +2,5 @@ package com.daveace.greenspaces.authenticationmethod;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AuthenticationMethodRepository extends JpaRepository<AuthenticationMethod, Integer> {
+public interface AuthenticationMethodRepo extends JpaRepository<AuthenticationMethod, Integer> {
 }

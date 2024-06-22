@@ -1,7 +1,7 @@
 package com.daveace.greenspaces.lightweight;
 
 import com.daveace.greenspaces.authenticationmethod.AuthenticationMethod;
-import com.daveace.greenspaces.authenticationmethod.AuthenticationMethodRepository;
+import com.daveace.greenspaces.authenticationmethod.AuthenticationMethodRepo;
 import com.daveace.greenspaces.authenticationmethod.AuthenticationMethodService;
 import com.daveace.greenspaces.authenticationmethod.AuthenticationMethods;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
 public class AuthenticationMethodServiceTest {
 
     @Mock
-    AuthenticationMethodRepository repo;
+    AuthenticationMethodRepo repo;
 
     @InjectMocks
     AuthenticationMethodService service;

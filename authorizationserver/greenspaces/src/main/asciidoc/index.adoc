@@ -4,12 +4,10 @@ Richard W. Ekong
 :icons: font
 :source-highlighter: highlightjs
 
-This application will demonstrate how to provide authorization to other GreenSpaces clients to access GreenSpaces resource through a GreenSpaces
+This application provides authorization to other GreenSpaces clients to access GreenSpaces resource through a GreenSpaces
 resource server.
-
-The Demonstrations will be performed through the Spring Rest Docs from the applications lightweight tests.
-The lightweight ClientControllerTest makes calls to the client service of this application to produce the following
-documentation snippets.
+Green Spaces is an Application that will enable users recommend parks, fields and relevant recreational and communal places
+and in turn enable citizens search for facilities, post comments and review, view available events within these spaces.
 
 == Performing Authorization through Authorization Code Grant Type
 
