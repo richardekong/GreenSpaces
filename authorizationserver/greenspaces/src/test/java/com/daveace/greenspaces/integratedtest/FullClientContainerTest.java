@@ -1,8 +1,6 @@
 package com.daveace.greenspaces.integratedtest;
 
-import com.daveace.greenspaces.authenticationmethod.AuthenticationMethod;
-import com.daveace.greenspaces.authenticationmethod.AuthenticationMethodRepository;
-import com.daveace.greenspaces.authenticationmethod.AuthenticationMethods;
+import com.daveace.greenspaces.authenticationmethod.AuthenticationMethodRepo;
 import com.daveace.greenspaces.client.ClientRepo;
 import com.daveace.greenspaces.granttypes.GrantTypeRepo;
 import com.daveace.greenspaces.redirecturi.RedirectUriRepo;
@@ -20,7 +18,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Map;
-import java.util.Set;
 
 import static com.daveace.greenspaces.util.Constants.*;
 import static com.daveace.greenspaces.util.ContentTestUtil.createContent;
@@ -42,7 +39,7 @@ public class FullClientContainerTest {
     ClientRepo clientRepo;
 
     @Autowired
-    AuthenticationMethodRepository authenticationMethodRepo;
+    AuthenticationMethodRepo authenticationMethodRepo;
 
     @Autowired
     RedirectUriRepo redirectUriRepo;

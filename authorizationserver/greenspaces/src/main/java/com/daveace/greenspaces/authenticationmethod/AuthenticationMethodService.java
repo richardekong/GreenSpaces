@@ -15,10 +15,10 @@ import static com.daveace.greenspaces.util.Constants.*;
 @Service
 public class AuthenticationMethodService {
 
-    private AuthenticationMethodRepository repo;
+    private AuthenticationMethodRepo repo;
 
     @Autowired
-    public void setRepo(AuthenticationMethodRepository repo) {
+    public void setRepo(AuthenticationMethodRepo repo) {
         this.repo = repo;
     }
 
