@@ -16,7 +16,14 @@ public class GreenSpacesCorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(
             //this list will be updated in future
-            List.of("localhost","127.0.0.1","10.0.2.2")
+            List.of(
+                    "http://localhost",
+                    "http://127.0.0.1",
+                    "http://10.0.2.2",
+                    "https://localhost",
+                    "https://127.0.0.1",
+                    "https://10.0.2.2"
+            )
         );
         config.setAllowedMethods(List.of("GET", "POST","PUT","DELETE"));
         config.setAllowedHeaders(List.of("*"));

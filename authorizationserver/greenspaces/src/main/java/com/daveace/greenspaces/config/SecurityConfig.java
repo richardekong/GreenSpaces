@@ -25,6 +25,7 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.firewall.StrictHttpFirewall;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
@@ -87,6 +88,7 @@ public class SecurityConfig {
         http.exceptionHandling(customizer -> customizer.defaultAuthenticationEntryPointFor(
                 new LoginUrlAuthenticationEntryPoint("/login"),
                 new MediaTypeRequestMatcher(MediaType.TEXT_HTML)));
+
 
         return http.build();
     }
