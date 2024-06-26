@@ -61,7 +61,106 @@
 |Location| The Current URI containing the authorization code after a successful redirect operation |
 
 
-**Creating a user**
+
+
+**Retrieving Access Token from Authorization Server**
+
+>cURL Request:
+>
+>$ curl 'http://localhost:8080/oauth2/token?client_id=76e09d7a-1095-4b47-80c5- 5f8bcba70f1d&redirect_uri=https://localhost:1000&grant_type=authorization_code&code=Ni UvZD4S0M4SCTa-DOaZ\_4pczlCaNiODFVcZYUJM50xVLtYWOyTuegPM5yEWd3IjWcZEDdiHoxaXlJs- bz\_Xjj7xS7887T3asgovUeQVB76\_Y7Drfd0raN6SKQ1yeZw3&code_verifier=uLQHUrpX3VL3cIfVT41XmHq rEp6pdYIJaO-5hgvHN0I' -i -u '76e09d7a-1095-4b47-80c5-5f8bcba70f1d:Secret4Client01' -X POST \
+>
+>`   `-H 'Content-Type: application/x-www-form-urlencoded'
+
+>Httpie Request:
+>
+>$ http --form --auth '76e09d7a-1095-4b47-80c5-5f8bcba70f1d:Secret4Client01' POST 'http://localhost:8080/oauth2/token?client_id=76e09d7a-1095-4b47-80c5- 5f8bcba70f1d&redirect_uri=https://localhost:1000&grant_type=authorization_code&code=Ni UvZD4S0M4SCTa-DOaZ_4pczlCaNiODFVcZYUJM50xVLtYWOyTuegPM5yEWd3IjWcZEDdiHoxaXlJs- bz_Xjj7xS7887T3asgovUeQVB76_Y7Drfd0raN6SKQ1yeZw3&code_verifier=uLQHUrpX3VL3cIfVT41XmHq rEp6pdYIJaO-5hgvHN0I'
+>
+
+>Http Request:
+>
+>POST /oauth2/token?client_id=76e09d7a-1095-4b47-80c5- 5f8bcba70f1d&redirect_uri=https://localhost:1000&grant_type=authorization_code&code=Ni UvZD4S0M4SCTa-DOaZ_4pczlCaNiODFVcZYUJM50xVLtYWOyTuegPM5yEWd3IjWcZEDdiHoxaXlJs- bz_Xjj7xS7887T3asgovUeQVB76_Y7Drfd0raN6SKQ1yeZw3&code_verifier=uLQHUrpX3VL3cIfVT41XmHq rEp6pdYIJaO-5hgvHN0I 
+> 
+>HTTP/1.1
+>
+>Content-Type: application/x-www-form-urlencoded
+>
+>Authorization: Basic NzZlMDlkN2EtMTA5NS00YjQ3LTgwYzUtNWY4YmNiYTcwZjFkOlNlY3JldDRDbGllbnQwMQ==
+>
+>Host: localhost:8080
+>
+>Http Response:
+>
+>HTTP/1.1 200 OK
+>
+>Content-Type: application/json;charset=UTF-8 X-Content-Type-Options: nosniff
+>
+>X-XSS-Protection: 0
+>
+>Cache-Control: no-cache, no-store, max-age=0, must-revalidate Pragma: no-cache
+>
+>Expires: 0
+>
+>X-Frame-Options: DENY
+>
+>Content-Length: 729
+>
+>{
+>
+>"access_token":"eyJraWQiOiI4ODg1NzAwNC0yYjViLTQyMjMtODlmMi1hMGRhNGI0Yzc1ZTYiLCJhbGciO iJSUzI1NiJ9.eyJzdWIiOiJhZG1pbkBncmVlbnNwYWNlcy5jb20iLCJhdWQiOiJjY2U1M2ZjNi01YjRkLTRmNj ItYTlmZi0yN2IxYjgzN2EzMGIiLCJuYmYiOjE3MTkzNTgyNzgsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0 cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzE5MzU4NTc4LCJpYXQiOjE3MTkzNTgyNzh9.UBvxjNS- VygL4g3OVa3LtEwYzUDCSAlxVDqYECFXavwwvyjc0-7bM5x_3yCRcLd5h0d- pCXaJDxvOe2ur_nc4Qn3gvyKehtvHRGgnGRx_mkj2yV2I29PSaAbxKe_V3xJ7HlfYYKkK8Fqdwfw3iEoPOBLLj XevB0_mPykyfwlZ8P9at7jQ6bZkkEJnQFlnaYKxZwRyjcCJHWyw3tSd_C_LHGwFqnMcny5EVIEGOzuaHkJNG5Y nMHeyRKFk-_RY4ohHpD7F4f81DPAkLP-o0frlRfCkoaE-aOb23a9-cy6DTCxDv4I5Dk1nJJw3Ccd8QNhhGiGAIS1KME_V1P- 7YLEjA",
+>
+>"scope":"read",
+>
+>"token_type":"Bearer",
+>
+>"expires_in":300
+>
+>}
+
+>Query Parameters:
+
+|**Parameter**|**Description**|
+| - | - |
+|client_id|Id of the client|
+|redirect_uri|The redirect URI registered for this client|
+|grant_type|The grant type or oauth2.0 authentication flow|
+|code|Authorization code from the authorization server|
+|code_verifier|Random verifier for proofing the client is authorized to use the authorization code|
+
+>Request Header:
+
+|**Name**|**Description**|
+| - | - |
+|Authorization|Basic Authentication through client id and client secret|
+
+>Request Body:
+
+
+>Response Body:
+>
+>{
+>
+>"access_token ": "eyJraWQiOiI4ODg1NzAwNC0yYjViLTQyMjMtODlmMi1hMGRhNGI0Yzc1ZTYiLCJhbGciO iJSUzI1NiJ9.eyJzdWIiOiJhZG1pbkBncmVlbnNwYWNlcy5jb20iLCJhdWQiOiJjY2U1M2ZjNi01YjRkLTRmNj ItYTlmZi0yN2IxYjgzN2EzMGIiLCJuYmYiOjE3MTkzNTgyNzgsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0 cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzE5MzU4NTc4LCJpYXQiOjE3MTkzNTgyNzh9.UBvxjNS- VygL4g3OVa3LtEwYzUDCSAlxVDqYECFXavwwvyjc0-7bM5x_3yCRcLd5h0d- pCXaJDxvOe2ur_nc4Qn3gvyKehtvHRGgnGRx_mkj2yV2I29PSaAbxKe_V3xJ7HlfYYKkK8Fqdwfw3iEoPOBLLj XevB0_mPykyfwlZ8P9at7jQ6bZkkEJnQFlnaYKxZwRyjcCJHWyw3tSd_C_LHGwFqnMcny5EVIEGOzuaHkJNG5Y nMHeyRKFk-_RY4ohHpD7F4f81DPAkLP-o0frlRfCkoaE-aOb23a9- cy6DTCxDv4I5Dk1nJJw3Ccd8QNhhGiGAIS1KME_V1P-7YLEjA",
+>    
+>    "scope ": "read",
+>    
+>    "token_type ": "Bearer",
+>    
+>    "expires_in":300
+>
+>}
+>
+
+>Response Fields:
+
+|**Path**|**Type**|**Description**|
+| - | - | - |
+|access_token|class java.lang.String|Token supplied by Authorization server|
+|scope|class java.lang.String|The action the client can perform upon user’s detail with the access token|
+|token_type|String|The type of token issued by the Authorization server e.g Bearer token|
+|expires_in|Number|Expiry time of the access token|
+
+
+>**Creating a user**
 
 >cURL Request:
 >
