@@ -51,48 +51,51 @@ public class ClientService implements RegisteredClientRepository, ClientConverte
             }
             return repo.save(client);
         }).handle((res, err) -> {
-            if (err != null) {
-                if (err instanceof GreenSpacesException) {
-                    throw (GreenSpacesException) err;
-                }
+            if (err instanceof GreenSpacesException) {
+                throw (GreenSpacesException) err;
+            } else if (err != null) {
                 throw new RuntimeException(err.getMessage());
+            } else {
+                return res;
             }
-            return res;
         }).join();
     }
 
     // read client
     @Override
-    public RegisteredClient findByClientId(String clientId) {
+    public RegisteredClient findByClientId(String id) {
         return CompletableFuture.supplyAsync(() ->
-                repo.findClientById(clientId)
+                repo.findById(id)
                         .map(this::toRegisteredClient)
                         .orElseThrow(() -> new GreenSpacesException(HttpStatus.NOT_FOUND))
         ).handle((res, err) -> {
-            if (err != null) {
-                throw new GreenSpacesException(err.getMessage());
-            }
-            return res;
-        }).join();
-    }
-
-    public Client findClientById(String clientId) {
-        return CompletableFuture.supplyAsync(() ->
-                repo.findClientById(clientId)
-                        .orElseThrow(() -> new GreenSpacesException(HttpStatus.NOT_FOUND))
-        ).handle((res, err) -> {
-            if (err != null) {
+            if (err instanceof GreenSpacesException) {
+                throw (GreenSpacesException) err;
+            } else if (err != null) {
                 throw new RuntimeException(err.getMessage());
+            } else {
+                return res;
             }
-            return res;
         }).join();
     }
 
     @Override
     public RegisteredClient findById(String id) {
         return CompletableFuture.supplyAsync(() ->
-                repo.findClientById(id)
+                repo.findById(id)
                         .map(this::toRegisteredClient)
+                        .orElseThrow(() -> new GreenSpacesException(HttpStatus.NOT_FOUND))
+        ).handle((res, err) -> {
+            if (err != null) {
+                throw new RuntimeException(err.getMessage());
+            }
+            return res;
+        }).join();
+    }
+
+    public Client findClientById(String id) {
+        return CompletableFuture.supplyAsync(() ->
+                repo.findClientById(id)
                         .orElseThrow(() -> new GreenSpacesException(HttpStatus.NOT_FOUND))
         ).handle((res, err) -> {
             if (err != null) {
@@ -146,7 +149,7 @@ public class ClientService implements RegisteredClientRepository, ClientConverte
         return CompletableFuture
                 .supplyAsync(() -> repo.existsByName(name))
                 .handle((res, err) -> {
-                    if (err!=null) throw new RuntimeException(err.getMessage());
+                    if (err != null) throw new RuntimeException(err.getMessage());
                     return res;
                 })
                 .join();

@@ -31,6 +31,37 @@ Response Header:
 
 include::{snippets}/OAuth2.0 Authorization/response-headers.adoc[]
 
+== Retrieving Access Token from Authorization Server
+
+cURL Request:
+
+include::{snippets}/OAuth2.0 Access Token/curl-request.adoc[]
+Httpie Request:
+
+include::{snippets}/OAuth2.0 Access Token/httpie-request.adoc[]
+Http Request:
+
+include::{snippets}/OAuth2.0 Access Token/http-request.adoc[]
+Http Response:
+
+include::{snippets}/OAuth2.0 Access Token/http-response.adoc[]
+Query Parameters:
+
+include::{snippets}/OAuth2.0 Access Token/query-parameters.adoc[]
+Request Header:
+
+include::{snippets}/OAuth2.0 Access Token/request-headers.adoc[]
+Request Body:
+
+include::{snippets}/OAuth2.0 Access Token/request-body.adoc[]
+
+Response Body:
+
+include::{snippets}/OAuth2.0 Access Token/response-body.adoc[]
+
+Response Fields:
+
+include::{snippets}/OAuth2.0 Access Token/response-fields.adoc[]
 == Creating a user
 
 cURL Request:
@@ -49,6 +80,7 @@ Requests and Responses:
 include::{snippets}/users/Create User/request-body.adoc[]
 include::{snippets}/users/Create User/request-fields.adoc[]
 include::{snippets}/users/Create User/response-body.adoc[]
+
 
 == Retrieving a user by id
 

@@ -33,7 +33,7 @@ public class GrantType {
                 '}';
     }
 
-    enum GrantTypes {
+    public enum GrantTypes {
 
         AUTHORIZATION_CODE("authorization_code"),
         REFRESH_TOKEN("refresh_token"),

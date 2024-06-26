@@ -19,7 +19,7 @@ INSERT INTO CLIENTS (id, client_id, `name`, secret)
 VALUES ('76e09d7a-1095-4b47-80c5-5f8bcba70f1d',
         'cce53fc6-5b4d-4f62-a9ff-27b1b837a30b',
         'Client01',
-        '$2y$10$hAVbqcuf1cShpDmLUAFXrePVGvD6uJWF8qbbKt0MqZW2GolpkSm2y'
+        '$2y$10$TKJf23zs.HBtkTugViR5POFaiThnem/MOt7bqE7pT5FPHuyr8mB8e'
 );
 
 INSERT INTO GRANT_TYPES (id, grant_type, client_id)

@@ -105,6 +105,11 @@ public class SecurityConfig {
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         // Configure all endpoints to require authentication
         return http
+                .csrf(csrfConfigurer-> {
+//                    csrfConfigurer.csrfTokenRepository(csrfTokenRepo);
+//                    csrfConfigurer.csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler());
+                    csrfConfigurer.disable();
+                })
                 .cors(corsCustomizer -> corsCustomizer.configurationSource(corsConfigurationSource))
                 .authorizeHttpRequests(c -> c.anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
