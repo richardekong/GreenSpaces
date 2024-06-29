@@ -41,33 +41,12 @@ import java.util.UUID;
 @Configuration
 public class SecurityConfig {
 
-    private UserService userService;
-
-    private ClientService clientService;
-
     private CorsConfigurationSource corsConfigurationSource;
-
-    private CSRFTokenService csrfTokenRepo;
-
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    @Autowired
-    public void setClientService(ClientService clientService) {
-        this.clientService = clientService;
-    }
 
     @Autowired
     @Qualifier("greenSpacesCorsConfigurationSource")
     public void setCorConfigurationSource(CorsConfigurationSource corsConfigurationSource) {
         this.corsConfigurationSource = corsConfigurationSource;
-    }
-
-    @Autowired
-    public void setCSRFTokenService(CSRFTokenService csrfTokenRepo) {
-        this.csrfTokenRepo = csrfTokenRepo;
     }
 
     @Bean
