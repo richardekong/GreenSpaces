@@ -1,5 +1,7 @@
 package com.daveace.greenspaces.config;
 
+import com.daveace.greenspaces.client.ClientService;
+import com.daveace.greenspaces.user.UserService;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
@@ -37,6 +39,20 @@ import java.util.UUID;
 public class SecurityConfig {
 
     private CorsConfigurationSource corsConfigurationSource;
+
+    private UserService userService;
+
+    private ClientService clientService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Autowired
+    public void setClientService(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @Autowired
     @Qualifier("greenSpacesCorsConfigurationSource")
