@@ -11,6 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AuthorizationServer" target="17" />
+      <module name="AuthorizationServer.main" target="17" />
+      <module name="AuthorizationServer.test" target="17" />
       <module name="greenspaces" target="17" />
       <module name="greenspaces.main" target="17" />
       <module name="greenspaces.test" target="17" />
